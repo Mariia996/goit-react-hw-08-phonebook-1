@@ -1,0 +1,10 @@
+.container {
+  max-width: 1024px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.imgContainer {
+  width: 600px;
+  margin: 20px auto;
+}
