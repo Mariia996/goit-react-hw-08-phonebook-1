@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import PropTypes from 'prop-types';
 
-import { addContactsFetch } from '../../../../../../redux/phonebook/phonebook-operations';
-import { getAllContacts } from '../../../../../../redux/phonebook/phonebook-selectors';
+import { addContactsFetch } from '../../../../../../redux/phonebook/reducer/contacts/phonebook-operations';
+import { getAllContacts } from '../../../../../../redux/phonebook/reducer/contacts/phonebook-selectors';
 import {fields} from "./fields";
 import styles from './FormAddContacts.module.css';
 
@@ -26,7 +26,7 @@ class FormAddContacts extends Component {
     onSubmit = (e) => {
         e.preventDefault();
         const { name, number} = this.state;
-        const { onSubmit, contacts } = this.props;
+        const { onSubmit, contacts} = this.props;
 
         const result = contacts.find(contact => {
                 return (contact.name === name || contact.number === number);
@@ -95,7 +95,7 @@ FormAddContacts.propTypes = {
 
 const mapStateToProps = state => {
     return {
-        contacts: getAllContacts(state)
+        contacts: getAllContacts(state),
     }
 }
 

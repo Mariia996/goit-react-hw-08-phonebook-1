@@ -1,0 +1,8 @@
+.authContainer {
+  margin-left: auto;
+}
+
+.authNavContainer {
+  display: flex;
+  list-style: none;
+}

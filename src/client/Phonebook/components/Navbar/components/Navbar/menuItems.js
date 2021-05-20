@@ -1,10 +1,7 @@
-export const menuItems = [
-    {
-        to: '/',
-        text: "Home",
-    },
-    {
-        to: '/contacts',
-        text: "Contacts"
-    },
-];
+export const menuItems = {
+    home: '/',
+    homeText: "Home",
+    phonebook: "/contacts",
+    phonebookText: "Contacts"
+}
+

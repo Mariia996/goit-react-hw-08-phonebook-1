@@ -1,0 +1,21 @@
+.authItem:not(:last-child) {
+  margin-right: 16px;
+}
+
+.authLink {
+  text-decoration: none;
+  color: rgb(114, 113, 113);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    text-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.authLink:hover,
+.authLink:focus {
+  color: rgb(114, 113, 113);
+  text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.6);
+}
+
+.authLinkActive {
+  color: #e10f5f;
+  text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.6);
+}

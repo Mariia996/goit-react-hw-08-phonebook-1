@@ -1,23 +1,45 @@
+import { connect } from 'react-redux';
+import { NavLink } from "react-router-dom";
+
 import shortid from 'shortid';
 
-import NavbarMenuItem from '../NavbarMenuItem';
-import { menuItems } from './menuItems';
+import { isLogin, getUser } from '../../../../../../redux/phonebook/reducer/auth/selectors';
+import {menuItems} from './menuItems';
+import AuthNav from '../../../AuthNav/components/AuthNav';
+import UserMenu from '../../../UserMenu/components/UserMenu';
 
 import styles from './Navbar.module.css';
 
-const Navbar = () => {
-    const navbarMenuElements = menuItems.map(item => <NavbarMenuItem key={shortid.generate()} {...item}/>)
+const Navbar = ({ isLogin, user }) => {
+    const { home, homeText, phonebook, phonebookText } = menuItems;
     return (
-         <nav className={styles.navbar}>
+        <header className={styles.header}>
             <div className={styles.container}>
-                <div className={styles.navbarRow}>
+                <nav className={styles.navbar}>
+                    <div className={styles.navbarRow}>
+                    <NavLink exact to={home} className={styles.logoLink}>Phonebook</NavLink>
                     <ul className={styles.navbarMenu}>
-                        {navbarMenuElements}
-                    </ul>
-                </div>
+                        <li className={styles.navbarMenuItem}>
+                            <NavLink exact to={home} className={styles.navbarMenuLink} activeClassName={styles.navbarMenuLinkActive} key={shortid.generate()}>{homeText}</NavLink>
+                        </li>
+                        <li className={styles.navbarMenuItem}>
+                            {isLogin && <NavLink exact to={phonebook} className={styles.navbarMenuLink} activeClassName={styles.navbarMenuLinkActive} key={shortid.generate()}>{phonebookText}</NavLink>}
+                        </li>
+                        </ul>
+                        </div>
+                    {isLogin ? <UserMenu user={user}/> : <AuthNav /> }
+                </nav>
             </div>
-        </nav>
+        </header>
      );
 }
 
-export default Navbar;
+
+const mapStateToProps = state => {
+    return {
+        isLogin: isLogin(state),
+        user: getUser(state)
+    }
+}
+
+export default connect(mapStateToProps)(Navbar);

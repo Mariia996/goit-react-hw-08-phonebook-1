@@ -1,0 +1,63 @@
+.header {
+  background-color: #ebebeb;
+  padding: 20px;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.75);
+}
+
+.container {
+  max-width: 1024px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.navbarRow {
+  display: flex;
+  align-items: baseline;
+}
+
+.logoLink {
+  margin-right: 30px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 700;
+  color: #e10f5f;
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.6);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logoLink:hover,
+.logoLink:focus {
+  color: rgb(114, 113, 113);
+}
+
+.navbarMenu {
+  display: flex;
+  list-style: none;
+}
+
+.navbarMenuItem:not(:last-child) {
+  margin-right: 16px;
+}
+
+.navbarMenuLink {
+  text-decoration: none;
+  color: rgb(114, 113, 113);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    text-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbarMenuLink:hover,
+.navbarMenuLink:focus {
+  color: rgb(114, 113, 113);
+  text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.6);
+}
+
+.navbarMenuLinkActive {
+  color: #e10f5f;
+  text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.6);
+}
